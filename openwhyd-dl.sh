@@ -10,15 +10,15 @@ rm $LOG $FAILURE_LOG >/dev/null 2>/dev/null
 
 echo "Downloading URLs from $WHYD_URL ..."
 echo "Downloading URLs from $WHYD_URL ..." >>$LOG
-URLS=$(curl -sS $WHYD_URL?format=links&limit=999999)
+URLS=$(curl -sS "$WHYD_URL?format=links&limit=999999")
 
 NUMBER=0
 for URL in $URLS; do 
   ((NUMBER++))
   NN=$(printf "%05d\n" $NUMBER)
   URL=${URL%#*} # remove the hash part of the URL (prevents downloading soundcloud tracks)
-  echo "Downloading media \# $NN: $URL ..."
-  echo "Downloading media \# $NN: $URL ..." >>$LOG
+  echo "Downloading media # $NN: $URL ..."
+  echo "Downloading media # $NN: $URL ..." >>$LOG
   youtube-dl $URL >>$LOG 2>>$LOG \
     --verbose --console-title --extract-audio --audio-format mp3 --output "$NN - %(title)s.%(ext)s"    
   RET=$?
