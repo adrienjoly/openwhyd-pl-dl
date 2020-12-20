@@ -3,7 +3,7 @@
 # * Track order is maintained using numbered prefixes
 # * Failed downloads are logged into a file
 
-WHYD_URL=$1 # e.g. https://openwhyd.org/test
+WHYD_URL=$1 # e.g. https://openwhyd.org/test/playlist/1
 LOG="openwhyd-dl.log"
 FAILURE_LOG="openwhyd-dl.failures.log"
 rm $LOG $FAILURE_LOG >/dev/null 2>/dev/null
