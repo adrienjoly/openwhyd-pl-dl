@@ -23,6 +23,11 @@ test "./openwhyd-pl-dl-json.sh ${PROFILE_URL} ${DEST_DIR}" "${DEST_DIR}/playlist
 # 2. Test openwhyd-dl.sh
 
 PLAYLIST_URL="https://openwhyd.org/test/playlist/2" # playlist with just 1 short mp3 file
-test "./openwhyd-dl.sh ${PLAYLIST_URL} ${DEST_DIR}" "${DEST_DIR}/00001 - mpthreetest.mp3"
+EXPECTED_FILE="${DEST_DIR}/00001 - mpthreetest.mp3"
+FAKE_YOUTUBE_DL_DIR="${DEST_DIR}/"
+mkdir -p "${DEST_DIR}"
+echo "touch \"${EXPECTED_FILE}\"" > "${FAKE_YOUTUBE_DL_DIR}/youtube-dl"
+chmod +x "${FAKE_YOUTUBE_DL_DIR}/youtube-dl"
+test "./openwhyd-dl.sh ${PLAYLIST_URL} ${DEST_DIR} ${FAKE_YOUTUBE_DL_DIR}" "${EXPECTED_FILE}"
 
 echo "✅ Done."
