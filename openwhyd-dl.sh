@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This script downloads all the tracks of an OpenWhyd playlist into MP3 files.
 # Based on youtube-dl: http://rg3.github.io/youtube-dl/ -- http://rg3.github.io/youtube-dl
 # * Track order is maintained using numbered prefixes

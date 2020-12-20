@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This script downloads playlists of an OpenWhyd profile in JSON format.
 # syntax: ./openwhyd-pl-dl-json.sh https://openwhyd.org/adrien
 

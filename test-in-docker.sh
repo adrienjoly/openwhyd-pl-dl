@@ -1,14 +1,20 @@
+#!/bin/bash
+
 set -e # this script will exit if any command returns a non-null value
 
 DEST_DIR="./tmp"
 docker build --tag "openwhyd-pl-dl" .
+
+function run_in_container {
+  docker run -t --rm -v "${PWD}:/app" -w "/app" "openwhyd-pl-dl" "/bin/bash" -c "$1"
+}
 
 function test {
   CMD="$1"
   EXPECTED_FILE="$2"
   # run test
   mkdir -p "${DEST_DIR}"
-  docker run -t --rm -v "${PWD}:/app" -w "/app" "openwhyd-pl-dl" "/bin/bash" -c "${CMD}"
+  run_in_container "${CMD}"
   # check expectation
   [ ! -f "${EXPECTED_FILE}" ] && echo "❌ Missing: ${EXPECTED_FILE}" && exit 1
   # cleanup
