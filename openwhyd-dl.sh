@@ -5,7 +5,6 @@
 
 WHYD_URL="$1" # e.g. https://openwhyd.org/test/playlist/1
 DEST_PATH="./$2"
-YOUTUBE_DL_PREFIX="$3"
 LOG="${DEST_PATH}/openwhyd-dl.log"
 FAILURE_LOG="${DEST_PATH}/openwhyd-dl.failures.log"
 rm $LOG $FAILURE_LOG >/dev/null 2>/dev/null
@@ -21,7 +20,7 @@ for URL in $URLS; do
   URL=${URL%#*} # remove the hash part of the URL (prevents downloading soundcloud tracks)
   echo "Downloading media # $NN: $URL ..."
   echo "Downloading media # $NN: $URL ..." >>$LOG
-  ${YOUTUBE_DL_PREFIX}youtube-dl $URL >>$LOG 2>>$LOG \
+  youtube-dl $URL >>$LOG 2>>$LOG \
     --verbose --console-title --extract-audio --audio-format mp3 --output "${DEST_PATH}/$NN - %(title)s.%(ext)s"    
   RET=$?
   if [ $RET -ne 0 ]; then
