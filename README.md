@@ -19,7 +19,7 @@ A youtube-dl based script to backup your [Openwhyd](http://openwhyd.org) playlis
 - [curl](https://curl.haxx.se/), command line tool for transferring data with URLs
 - [jq](https://stedolan.github.io/jq/), lightweight and flexible command-line JSON processor
 
-These scripts were successfully tested on Mac OS 10.11.6 (El Capitan) in August 2016.
+These scripts were successfully tested on Mac OS 10.11.6 (El Capitan) in August 2016. Some of them are also tested in a Linux-based Continuous Integration environment (see [GitHub Actions](https://github.com/adrienjoly/openwhyd-pl-dl/actions)).
 
 ## Sample usage
 
