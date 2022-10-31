@@ -16,6 +16,7 @@ A youtube-dl based script to backup your [Openwhyd](http://openwhyd.org) playlis
 ## Dependencies
 
 - [youtube-dl](rg3.github.io/youtube-dl/), python program to download videos from YouTube.com and a few more sites
+- [ffmpeg](https://ffmpeg.org/), to convert files to mp3 format, instead of m4a
 - [curl](https://curl.haxx.se/), command line tool for transferring data with URLs
 - [jq](https://stedolan.github.io/jq/), lightweight and flexible command-line JSON processor
 
